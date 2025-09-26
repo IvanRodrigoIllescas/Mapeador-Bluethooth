@@ -7,6 +7,7 @@ def on_press(event):
 
         case "volume up":
             mouse.move(100,100)
+
         case "volume down":
             print("bajando volumen")
 
@@ -21,6 +22,6 @@ def on_press(event):
 
 
 
-keyboard.on_press(on_press)
+keyboard.on_press(on_press, suppress=True)
 
 keyboard.wait('esc')
