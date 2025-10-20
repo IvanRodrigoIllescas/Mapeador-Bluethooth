@@ -1,23 +1,68 @@
 import keyboard, mouse
 
+diccionario1 = {
+    "volume up":"volume up",
+    "volume down":"volume down",
+    "previous track":"flecha izquierda",
+    "next track":"flecha derecha",
+    "play/pause media":"play/pause media",
+    "browser start and home":""
+}
+
+diccionario2 = {
+    "volume up":[0,-10],
+    "volume down":[0,10],
+    "previous track":[-10,0],
+    "next track":[10,0],
+    "play/pause media":"play/pause media",
+    "browser start and home":""
+}
+
+diccionario3 = {
+    "volume up":"volume up",
+    "volume down":"volume down",
+    "previous track":"flecha izquierda",
+    "next track":"flecha derecha",
+    "play/pause media":"play/pause media",
+    "browser start and home":""
+}
+
+
+diccionario = diccionario2
+
+
 def on_press(event):
     print(event.name)
 
-    match event.name:
+    hacerAccion(diccionario[event.name])
+    #
+    # match event.name:
+    #
+    #     case "volume up":
+    #         keyboard.send(diccionario["volume up"])
+    #
+    #     case "volume down":
+    #         keyboard.send(diccionario["volume down"])
+    #
+    #     case "previous track":
+    #         keyboard.send(diccionario["previous track"])
+    #
+    #     case "next track":
+    #         keyboard.send(diccionario["next track"])
+    #
+    #     case "play/pause media":
+    #         keyboard.send(diccionario["play/pause media"])
+    #
 
-        case "volume up":
-            mouse.move(100,100)
+def hacerAccion(accion: str):
+    keyboard.send(accion)
 
-        case "volume down":
-            print("bajando volumen")
+def hacerAccion(coordenadas: list[int]):
+    mouse.move(*coordenadas, absolute=False)
 
-        case "next track":
-            keyboard.send("flecha derecha")
-        case "previous track":
-            keyboard.send("flecha izquierda")
 
-        case "play/pause media":
-            print("play/pause")
+
+
 
 
 
@@ -25,6 +70,21 @@ def on_press(event):
 keyboard.on_press(on_press, suppress=True)
 
 keyboard.wait('esc')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
